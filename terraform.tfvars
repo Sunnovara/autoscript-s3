@@ -5,5 +5,5 @@
 aws_region = "us-east-1"
 
 # The name of the S3 bucket.
-bucket_name = "my-bucket-name"
+bucket_name = "autoscript-pro-15may"
 
