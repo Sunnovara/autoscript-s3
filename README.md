@@ -3,10 +3,10 @@
 ## Project Overview
 This Terraform configuration creates AWS infrastructure based on the following request:
 
-> **Create S3 bucket with versioning**
+> **Create S3 bucket named autoscript-pro-15may**
 
 **Target Region:** `us-east-1`
-**Generated:** 5 files
+**Generated:** 7 files
 **Resources:** 2 AWS resource types
 
 ---
@@ -34,6 +34,9 @@ This Terraform configuration creates AWS infrastructure based on the following r
 
 ### `terraform.tfvars`
 **Variable Values** — Actual values for the variables in variables.tf. Edit to customize your deployment.
+
+### `.gitignore`
+**Git Ignore Configuration** — Prevents committing sensitive or generated files.
 
 ---
 
