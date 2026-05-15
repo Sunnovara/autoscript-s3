@@ -3,19 +3,17 @@
 ## Project Overview
 This Terraform configuration creates AWS infrastructure based on the following request:
 
-> **Add a KMS key for encryption and configure the S3 bucket to use server-side encryption with the KMS key.**
+> **Create a modular Terraform setup with one module for an S3 bucket and another module for a KMS key. The S3 bucket should use the KMS key for server-side encryption.**
 
 **Target Region:** `us-east-1`
-**Generated:** 5 files
-**Resources:** 3 AWS resource types
+**Generated:** 11 files
+**Resources:** 0 AWS resource types
 
 ---
 
 ## AWS Resources
 
-- **aws_kms_key** (`s3`)
-- **aws_s3_bucket** (`this`)
-- **aws_s3_bucket_versioning** (`this`)
+- No resources detected in main.tf
 
 ---
 
@@ -36,14 +34,33 @@ This Terraform configuration creates AWS infrastructure based on the following r
 ### `terraform.tfvars`
 **Variable Values** — Actual values for the variables in variables.tf. Edit to customize your deployment.
 
+### `modules/kms_key/main.tf`
+**Additional Configuration** — Supporting file for the Terraform deployment.
+
+### `modules/kms_key/outputs.tf`
+**Additional Configuration** — Supporting file for the Terraform deployment.
+
+### `modules/kms_key/variables.tf`
+**Additional Configuration** — Supporting file for the Terraform deployment.
+
+### `modules/s3_bucket/main.tf`
+**Additional Configuration** — Supporting file for the Terraform deployment.
+
+### `modules/s3_bucket/outputs.tf`
+**Additional Configuration** — Supporting file for the Terraform deployment.
+
+### `modules/s3_bucket/variables.tf`
+**Additional Configuration** — Supporting file for the Terraform deployment.
+
 ---
 
 ## Configuration Variables
 
 The following variables can be customized in `terraform.tfvars`:
 
-- **aws_region**: The AWS region to deploy resources in.
-- **bucket_name**: The name of the S3 bucket.
+- **aws_region**: AWS region to deploy resources in.
+- **bucket_name**: Name of the S3 bucket.
+- **kms_key_alias**: Alias for the KMS key.
 
 ---
 
@@ -51,9 +68,8 @@ The following variables can be customized in `terraform.tfvars`:
 
 After deployment, the following outputs will be available:
 
-- **bucket_name**: The name of the S3 bucket.
-- **bucket_arn**: The ARN of the S3 bucket.
-- **kms_key_arn**: The ARN of the KMS key used for S3 bucket encryption.
+- **s3_bucket_id**: ID of the S3 bucket.
+- **kms_key_arn**: ARN of the KMS key.
 
 ---
 
