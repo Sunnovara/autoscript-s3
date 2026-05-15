@@ -3,16 +3,17 @@
 ## Project Overview
 This Terraform configuration creates AWS infrastructure based on the following request:
 
-> **Create S3 bucket named autoscript-pro-15may**
+> **Add a KMS key for encryption and configure the S3 bucket to use server-side encryption with the KMS key.**
 
 **Target Region:** `us-east-1`
-**Generated:** 7 files
-**Resources:** 2 AWS resource types
+**Generated:** 5 files
+**Resources:** 3 AWS resource types
 
 ---
 
 ## AWS Resources
 
+- **aws_kms_key** (`s3`)
 - **aws_s3_bucket** (`this`)
 - **aws_s3_bucket_versioning** (`this`)
 
@@ -35,9 +36,6 @@ This Terraform configuration creates AWS infrastructure based on the following r
 ### `terraform.tfvars`
 **Variable Values** — Actual values for the variables in variables.tf. Edit to customize your deployment.
 
-### `.gitignore`
-**Git Ignore Configuration** — Prevents committing sensitive or generated files.
-
 ---
 
 ## Configuration Variables
@@ -55,6 +53,7 @@ After deployment, the following outputs will be available:
 
 - **bucket_name**: The name of the S3 bucket.
 - **bucket_arn**: The ARN of the S3 bucket.
+- **kms_key_arn**: The ARN of the KMS key used for S3 bucket encryption.
 
 ---
 
