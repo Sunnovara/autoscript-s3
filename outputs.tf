@@ -1,14 +1,10 @@
-output "bucket_name" {
-  description = "The name of the S3 bucket."
-  value       = aws_s3_bucket.this.bucket
-}
-
-output "bucket_arn" {
-  description = "The ARN of the S3 bucket."
-  value       = aws_s3_bucket.this.arn
+// outputs.tf
+output "s3_bucket_id" {
+  description = "ID of the S3 bucket."
+  value       = module.s3_bucket.bucket_id
 }
 
 output "kms_key_arn" {
-  description = "The ARN of the KMS key used for S3 bucket encryption."
-  value       = aws_kms_key.s3.arn
+  description = "ARN of the KMS key."
+  value       = module.kms_key.kms_key_arn
 }
