@@ -1,11 +1,11 @@
-// main.tf
-module "kms_key" {
-  source        = "./modules/kms_key"
-  kms_key_alias = var.kms_key_alias
+resource "aws_s3_bucket" "this" {
+  bucket = var.bucket_name
 }
 
-module "s3_bucket" {
-  source         = "./modules/s3_bucket"
-  bucket_name    = var.bucket_name
-  kms_key_arn    = module.kms_key.kms_key_arn
+resource "aws_s3_bucket_versioning" "this" {
+  bucket = aws_s3_bucket.this.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
