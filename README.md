@@ -3,17 +3,18 @@
 ## Project Overview
 This Terraform configuration creates AWS infrastructure based on the following request:
 
-> **Create a modular Terraform setup with one module for an S3 bucket and another module for a KMS key. The S3 bucket should use the KMS key for server-side encryption.**
+> **Create S3 bucket with versioning**
 
 **Target Region:** `us-east-1`
-**Generated:** 11 files
-**Resources:** 0 AWS resource types
+**Generated:** 5 files
+**Resources:** 2 AWS resource types
 
 ---
 
 ## AWS Resources
 
-- No resources detected in main.tf
+- **aws_s3_bucket** (`this`)
+- **aws_s3_bucket_versioning** (`this`)
 
 ---
 
@@ -34,33 +35,14 @@ This Terraform configuration creates AWS infrastructure based on the following r
 ### `terraform.tfvars`
 **Variable Values** — Actual values for the variables in variables.tf. Edit to customize your deployment.
 
-### `modules/kms_key/main.tf`
-**Additional Configuration** — Supporting file for the Terraform deployment.
-
-### `modules/kms_key/outputs.tf`
-**Additional Configuration** — Supporting file for the Terraform deployment.
-
-### `modules/kms_key/variables.tf`
-**Additional Configuration** — Supporting file for the Terraform deployment.
-
-### `modules/s3_bucket/main.tf`
-**Additional Configuration** — Supporting file for the Terraform deployment.
-
-### `modules/s3_bucket/outputs.tf`
-**Additional Configuration** — Supporting file for the Terraform deployment.
-
-### `modules/s3_bucket/variables.tf`
-**Additional Configuration** — Supporting file for the Terraform deployment.
-
 ---
 
 ## Configuration Variables
 
 The following variables can be customized in `terraform.tfvars`:
 
-- **aws_region**: AWS region to deploy resources in.
-- **bucket_name**: Name of the S3 bucket.
-- **kms_key_alias**: Alias for the KMS key.
+- **aws_region**: The AWS region to deploy resources in.
+- **bucket_name**: The name of the S3 bucket.
 
 ---
 
@@ -68,8 +50,7 @@ The following variables can be customized in `terraform.tfvars`:
 
 After deployment, the following outputs will be available:
 
-- **s3_bucket_id**: ID of the S3 bucket.
-- **kms_key_arn**: ARN of the KMS key.
+- **s3_bucket_id**: The name of the S3 bucket.
 
 ---
 
